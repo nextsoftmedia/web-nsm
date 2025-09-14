@@ -1,425 +1,1046 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Soft Media - Your Digital Growth Partner</title>
 
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Next Soft Media is your dedicated digital growth partner in Lucknow, India. We specialize in result-driven digital marketing, SEO, SMM, influencer marketing, and cutting-edge IT solutions including web and mobile app development.">
+    <meta name="keywords" content="Digital Marketing, IT Solutions, SEO Services, Social Media Marketing, Influencer Marketing, Web Development, Mobile App Development, Next Soft Media, Lucknow, India">
+    <meta name="author" content="Next Soft Media">
+    <link rel="canonical" href="https://www.nextsoftmedia.com"> <!-- Replace with your actual domain -->
 
-    <title>NSM</title>
+    <!-- Open Graph Tags (for social sharing) -->
+    <meta property="og:title" content="Next Soft Media - Your Digital Growth Partner">
+    <meta property="og:description" content="Partner with us for digital excellence. We offer a blend of marketing, technology, and influence to help your brand grow online.">
+    <meta property="og:image" content="https://placehold.co/1200x630/1e3a8a/ffffff?text=Next+Soft+Media"> <!-- Replace with a link to a hero image -->
+    <meta property="og:url" content="https://www.nextsoftmedia.com"> <!-- Replace with your actual domain -->
+    <meta property="og:type" content="website">
 
-    <!-- CSS FILES -->
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Next Soft Media - Your Digital Growth Partner">
+    <meta name="twitter:description" content="From powerful SEO campaigns to India's largest influencer network, we are your growth partners.">
+    <meta name="twitter:image" content="https://placehold.co/1200x630/1e3a8a/ffffff?text=Next+Soft+Media"> <!-- Replace with a link to a hero image -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Google Analytics - Replace G-XXXXXXXXXX with your Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EZ1CKZTFZX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;700;900&display=swap"
-        rel="stylesheet">
+      gtag('config', 'G-EZ1CKZTFZX');
+    </script>
+    
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Next Soft Media",
+      "url": "https://www.nextsoftmedia.com",
+      "logo": "https://placehold.co/50x50/ffffff/1e3a8a?text=NSM",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-87266-32286",
+        "contactType": "Customer Service",
+        "email": "info@nextsoftmedia.com"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lucknow",
+        "addressRegion": "Uttar Pradesh",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://www.facebook.com/nextsoftmedia",
+        "https://www.twitter.com/nextsoftmedia",
+        "https://www.instagram.com/nextsoftmedia",
+        "https://www.linkedin.com/company/nextsoftmedia",
+        "https://www.youtube.com/@nextsoftmedia"
+      ]
+    }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #ea580c 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        #particle-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: #4b5563;
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .fly-in-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fly-in-left.visible {
+             opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .team-card .team-socials {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .team-card:hover .team-socials {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .typed-cursor {
+            opacity: 1;
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        /* Header Styles */
+        header.scrolled {
+            background-color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+        header.scrolled nav a { color: #4b5563; }
+        header.scrolled nav a:hover { color: #ea580c; }
+        header.scrolled #mobile-menu-button { color: #1f2937; }
+        header.scrolled #header-logo-next { color: #1f2937; } /* black */
+        header.scrolled #header-logo-soft { color: #d1d5db; } /* light gray */
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-icons.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/magnific-popup.css">
+        /* Testimonial Slider */
+        .testimonial-slider {
+            position: relative;
+        }
+        .testimonial-item {
+            display: none;
+        }
+        .testimonial-item.active {
+            display: block;
+        }
+        .testimonial-card {
+             background-color: #ffffff;
+             border-left: 4px solid #ea580c;
+        }
+        .progress-bar {
+            transition: width 1.5s ease-in-out;
+        }
 
-    <link href="css/aos.css" rel="stylesheet">
+        /* Blob Animation */
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
 
-    <link href="css/templatemo-nomad-force.css" rel="stylesheet">
-    <!--
-
-TemplateMo 567 Nomad Force
-
-https://templatemo.com/tm-567-nomad-force
-
--->
+    </style>
 </head>
+<body class="bg-slate-50 text-gray-800">
 
-<body>
-
-    <main>
-
-        <section class="hero" id="hero">
-            <div class="heroText">
-                <h1 class="text-white mt-5 mb-lg-4" data-aos="zoom-in" data-aos-delay="800">
-                    Next Soft Media
-                </h1>
-
-                <p class="text-secondary-white-color" data-aos="fade-up" data-aos-delay="1000">
-                    Your Digital <strong class="custom-underline">Partner</strong>
-                </p>
-            </div>
-
-            <div class="videoWrapper">
-                <video autoplay="" loop="" muted="" class="custom-video">
-                    <source src="videos/DigiVideo.mp4" type="video/mp4">
-
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-
-            <div class="overlay"></div>
-        </section>
-
-        <nav class="navbar navbar-expand-lg bg-light shadow-lg">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">
-                    <img src="images/LOGO_NSM.png" alt="RCreative Logo" style="height: 40px;">
-                    <span class="fw-bold" style="font-size: 1.25rem;">Next Soft Media</span>
+    <!-- Header -->
+    <header id="header" class="fixed w-full z-50 transition-all duration-300 py-4">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between">
+                <a href="#home" class="flex items-center space-x-3">
+                    <!-- LOGO PLACEHOLDER: Replace 'logo.png' with your actual logo file -->
+                    <img src="Images/LOGO_NSM.png" alt="Next Soft Media Logo" class="h-12 w-auto rounded-md">
+                    <span class="text-2xl font-bold tracking-tight">
+                        <span id="header-logo-next" class="text-white transition-colors duration-300">Next</span><span id="header-logo-soft" class="text-gray-300 transition-colors duration-300">Soft</span><span class="text-orange-500">Media</span>
+                    </span>
                 </a>
-
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <nav class="hidden lg:flex items-center space-x-6">
+                    <a href="#home" class="text-white hover:text-orange-300 transition font-medium whitespace-nowrap">Home</a>
+                    <a href="#about" class="text-white hover:text-orange-300 transition font-medium whitespace-nowrap">About</a>
+                    <a href="#services" class="text-white hover:text-orange-300 transition font-medium whitespace-nowrap">Services</a>
+                    <a href="#team" class="text-white hover:text-orange-300 transition font-medium whitespace-nowrap">Our Team</a>
+                    <a href="#testimonials" class="text-white hover:text-orange-300 transition font-medium whitespace-nowrap">Testimonials</a>
+                    <a href="#blog" class="text-white hover:text-orange-300 transition font-medium whitespace-nowrap">Blog</a>
+                    <a href="#contact" class="text-white hover:text-orange-300 transition font-medium whitespace-nowrap">Contact</a>
+                </nav>
+                <a href="#contact" class="hidden lg:inline-block bg-orange-600 text-white font-semibold px-6 py-2 rounded-lg hover:bg-orange-700 transition shadow-lg whitespace-nowrap">Get In Touch</a>
+                <button id="mobile-menu-button" class="lg:hidden text-2xl text-white transition-colors duration-300">
+                    <i class="fas fa-bars"></i>
                 </button>
-
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#hero">Home</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#about">About Us</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#portfolio">Portfolio</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#news">Our Services</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact Us</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
-        </nav>
-
-        <section class="section-padding pb-0" id="about" style="background: linear-gradient(135deg, #f9f9f9, #ffffff);">
-  <div class="container mb-5 pb-lg-5">
-    <div class="row">
-      <div class="col-12">
-        <h2 class="mb-3" data-aos="fade-up">Who Are We</h2>
-      </div>
-
-      <div class="col-lg-6 col-12 mt-3 mb-lg-5">
-        <p class="me-4" data-aos="fade-up" data-aos-delay="300">
-          <strong>Next Soft Media</strong> is more than just a digital marketing company — we are your growth partners in the digital world.
-          Founded with a mission to help businesses scale online, we specialize in result-driven marketing strategies and cutting-edge IT solutions.
-          From powerful SEO campaigns to high-performing websites, from targeted ad strategies to mobile app development — we do it all with passion and precision.
-        </p>
-      </div>
-
-      <div class="col-lg-6 col-12 mt-lg-3 mb-lg-5">
-        <p data-aos="fade-up" data-aos-delay="500">
-          What sets us apart? We operate India’s largest influencer network, connecting your brand with the most engaging content creators across platforms like Instagram, YouTube, Twitter, and more — ensuring your message reaches the right audience with maximum impact.
-        </p>
-      </div>
-
-      <div class="col-lg-6 col-12 mt-lg-3 mb-lg-5">
-        <h2 class="mb-3" data-aos="fade-up">Our Vision</h2>
-        <p data-aos="fade-up" data-aos-delay="500">
-          To become a global leader in transforming businesses through innovative, data-driven, and creative digital solutions.
-        </p>
-      </div>
-
-      <div class="col-lg-6 col-12 mt-lg-3 mb-lg-5">
-        <h2 class="mb-3" data-aos="fade-up">Our Mission</h2>
-        <p data-aos="fade-up" data-aos-delay="500">
-          To help brands grow online, build trust, reach the right audience, and convert clicks into customers — through the perfect blend of technology, marketing, and influence.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-3 col-12 p-0">
-        <img src="images/about-nsm1.jpg" class="img-fluid about-image" alt="Next Soft Media Office">
-      </div>
-
-      <div class="col-lg-3 col-12 bg-dark">
-        <div class="d-flex flex-column flex-wrap justify-content-center h-100 py-5 px-4 pt-lg-4 pb-lg-0">
-          <h3 class="text-white mb-3" data-aos="fade-up">Why Choose Us?</h3>
-
-          <p class="text-secondary-white-color" data-aos="fade-up">
-            <i class="bi bi-check-circle-fill text-success me-2"></i> India’s Largest Influencer Network
-          </p>
-          <p class="text-secondary-white-color" data-aos="fade-up">
-            <i class="bi bi-check-circle-fill text-success me-2"></i> Proven SEO & Marketing Strategies
-          </p>
-          <p class="text-secondary-white-color" data-aos="fade-up">
-            <i class="bi bi-check-circle-fill text-success me-2"></i> End-to-End IT & Creative Solutions
-          </p>
-          <p class="text-secondary-white-color" data-aos="fade-up">
-            <i class="bi bi-check-circle-fill text-success me-2"></i> Data-Driven Decision Making
-          </p>
-          <p class="text-secondary-white-color" data-aos="fade-up">
-            <i class="bi bi-check-circle-fill text-success me-2"></i> Global Clientele & Reach
-          </p>
-
-          <div class="mt-3 custom-links">
-            <a href="#contact" class="text-white custom-link" data-aos="zoom-in" data-aos-delay="300">Contact Us</a>
-          </div>
         </div>
-      </div>
-
-      <div class="col-lg-6 col-12 p-0">
-        <section id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="images/about-nsm2.jpg" class="img-fluid team-image uniform-height" alt="Team at Work">
-              <div class="team-thumb bg-warning"><h3 class="text-white mb-0">Team at work</h3></div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t">
+            <a href="#home" class="block py-3 px-6 text-gray-600 hover:bg-gray-100">Home</a>
+            <a href="#about" class="block py-3 px-6 text-gray-600 hover:bg-gray-100">About</a>
+            <a href="#services" class="block py-3 px-6 text-gray-600 hover:bg-gray-100">Services</a>
+            <a href="#team" class="block py-3 px-6 text-gray-600 hover:bg-gray-100">Our Team</a>
+            <a href="#testimonials" class="block py-3 px-6 text-gray-600 hover:bg-gray-100">Testimonials</a>
+            <a href="#blog" class="block py-3 px-6 text-gray-600 hover:bg-gray-100">Blog</a>
+            <a href="#contact" class="block py-3 px-6 text-gray-600 hover:bg-gray-100">Contact</a>
+             <div class="px-6 py-4">
+                <a href="#contact" class="block text-center bg-orange-600 text-white font-semibold px-6 py-2 rounded-lg hover:bg-orange-700 transition shadow-lg">Get In Touch</a>
             </div>
-            <div class="carousel-item">
-              <img src="images/Digital-Campaign.jpg" class="img-fluid team-image uniform-height" alt="Digital Campaign">
-              <div class="team-thumb bg-primary"><h3 class="text-white mb-0">Digital Campaign</h3></div>
-            </div>
-            <div class="carousel-item">
-              <img src="images/Creative-Media.jpg" class="img-fluid team-image uniform-height" alt="Creative Media Production">
-              <div class="team-thumb bg-success"><h3 class="text-white mb-0">Creative Media</h3></div>
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-          </button>
-        </section>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-        <section class="section-padding" id="portfolio">
-  <div class="container">
-    <h2 class="mb-5 text-center">Portfolio</h2>
-    <div class="row">
-
-      <!-- Example Reel -->
-      <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
-        <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/reel/C3sEmKzBOMO/?igsh=MWR4YzdreTZlYzNtMQ=="
-          data-instgrm-version="14"
-          style="background:#FFF; border:0; margin:0 auto; max-width:540px; width:100%;">
-        </blockquote>
-      </div>
-
-      <!-- Another Reel -->
-      <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
-        <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/reel/DMkzXgPNJSo/?igsh=bWp2d3ZlaTFtYWYx"
-          data-instgrm-version="14"
-          style="background:#FFF; border:0; margin:0 auto; max-width:540px; width:100%;">
-        </blockquote>
-      </div>
-
-      <!-- Another Reel -->
-      <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
-        <blockquote class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/reel/DLZ2-0uTGO1/?igsh=MWYwaDNoZ3Jnd2kx"
-          data-instgrm-version="14"
-          style="background:#FFF; border:0; margin:0 auto; max-width:540px; width:100%;">
-        </blockquote>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-        <section class="services section-padding" id="news">
-  <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="fw-bold" data-aos="fade-up">Our Services</h2>
-      <p class="text-muted" data-aos="fade-up" data-aos-delay="100">
-        We offer a complete suite of digital marketing, IT, and creative solutions tailored to your business growth.
-      </p>
-    </div>
-
-    <div class="row g-4">
-
-      <!-- Digital Marketing -->
-      <div class="col-lg-3 col-md-6" data-aos="fade-up">
-        <div class="service-card p-4 shadow-sm h-100 text-center">
-          <div class="icon mb-3"><i class="bi bi-bar-chart-fill fs-1 text-primary"></i></div>
-          <h5 class="fw-bold">Digital Marketing</h5>
-          <ul class="list-unstyled text-muted small">
-            <li>SEO Optimization</li>
-            <li>Social Media Marketing</li>
-            <li>PPC Advertising</li>
-            <li>Email Marketing</li>
-            <li>Content Marketing</li>
-            <li>GMB Optimization</li>
-          </ul>
         </div>
-      </div>
+    </header>
 
-      <!-- Website & IT -->
-      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="service-card p-4 shadow-sm h-100 text-center">
-          <div class="icon mb-3"><i class="bi bi-laptop fs-1 text-success"></i></div>
-          <h5 class="fw-bold">Website & IT</h5>
-          <ul class="list-unstyled text-muted small">
-            <li>Website Development</li>
-            <li>E-Commerce Development</li>
-            <li>Mobile App Development</li>
-            <li>UI/UX Design</li>
-            <li>Domain & Hosting</li>
-            <li>Maintenance & Support</li>
-          </ul>
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg text-white min-h-screen flex items-center">
+        <canvas id="particle-canvas"></canvas>
+        <div class="hero-content container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 fade-in">Your Next Step in Digital Evolution</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto fade-in" style="transition-delay: 0.2s;">
+                We are your growth partners, blending <span class="font-bold text-orange-400" id="typed-text"></span><span class="typed-cursor">|</span>
+            </p>
+            <a href="#services" class="bg-white text-orange-600 font-bold py-3 px-8 rounded-full text-lg hover:bg-gray-200 transition-transform transform hover:scale-105 shadow-2xl fade-in" style="transition-delay: 0.4s;">Discover Our Services</a>
         </div>
-      </div>
+    </section>
 
-      <!-- Creative Media -->
-      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="service-card p-4 shadow-sm h-100 text-center">
-          <div class="icon mb-3"><i class="bi bi-camera-reels fs-1 text-warning"></i></div>
-          <h5 class="fw-bold">Creative Media</h5>
-          <ul class="list-unstyled text-muted small">
-            <li>Photography</li>
-            <li>Videography</li>
-            <li>Video Editing</li>
-            <li>Script Writing</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Influencer Marketing -->
-      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-        <div class="service-card p-4 shadow-sm h-100 text-center">
-          <div class="icon mb-3"><i class="bi bi-people-fill fs-1 text-danger"></i></div>
-          <h5 class="fw-bold">Influencer Marketing</h5>
-          <ul class="list-unstyled text-muted small">
-            <li>Influencer Campaigns</li>
-            <li>Creator Network Access</li>
-            <li>Campaign Strategy</li>
-            <li>Local & Regional Targeting</li>
-            <li>Performance Reports</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-
-
-        <section class=" contact section-padding" id="contact">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-lg-7 col-12 mx-auto">
-
-                        <h2 class="mb-4 text-center" data-aos="fade-up">Dont' be shy, write to us</h2>
-
-                        <form action="#" method="post" class="contact-form" role="form" data-aos="fade-up">
-
-                            <div class="row">
-
-                                <div class="col-lg-6 col-6">
-                                    <label for="name" class="form-label">Name <sup class="text-danger">*</sup></label>
-
-                                    <input type="text" name="name" id="name" class="form-control"
-                                        placeholder="Full name" required>
-                                </div>
-
-                                <div class="col-lg-6 col-6">
-                                    <label for="email" class="form-label">Email <sup class="text-danger">*</sup></label>
-
-                                    <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*"
-                                        class="form-control" placeholder="Email address" required>
-                                </div>
-
-                                <div class="col-12 my-4">
-                                    <label for="message" class="form-label">How can we help?</label>
-
-                                    <textarea name="message" rows="6" class="form-control" id="message"
-                                        placeholder="Tell us about the project" required></textarea>
-
-                                </div>
-
-                            <div class="col-lg-5 col-12 mx-auto mt-5">
-                                <button type="submit" class="form-control">Send Message</button>
-                            </div>
-                        </form>
+    <!-- About Us Section -->
+    <section id="about" class="py-24 bg-white overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Image Side -->
+                <div class="relative w-full min-h-[500px] fly-in-left">
+                    <div class="absolute top-0 left-0 w-72 h-72 bg-orange-200 rounded-full opacity-50 -translate-x-12 -translate-y-12 animate-blob"></div>
+                    <div class="absolute bottom-0 right-0 w-80 h-80 bg-blue-200 rounded-xl opacity-50 translate-x-16 translate-y-16 transform rotate-45 animate-blob animation-delay-2000"></div>
+                    <div class="relative z-10 p-4 flex items-center justify-center h-full">
+                        <img id="about-us-image" src="https://placehold.co/600x450/1e3a8a/ffffff?text=Strategy" alt="Digital Strategy" class="rounded-lg shadow-2xl w-full max-w-lg object-cover transition-opacity duration-500">
                     </div>
-
+                </div>
+    
+                <!-- Text Side -->
+                <div class="fade-in">
+                    <span class="text-orange-600 font-semibold tracking-wider">ABOUT US</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 mt-2 mb-6">Your Dedicated Digital Growth Partner</h2>
+                    <p class="text-gray-600 mb-8 text-lg">
+                        Founded with a mission to help businesses scale online, we specialize in result-driven marketing strategies and cutting-edge IT solutions. We do it all, and we do it with passion.
+                    </p>
+                    <div class="space-y-8 mt-10">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-12 w-12 rounded-lg bg-orange-100 text-orange-600 flex items-center justify-center">
+                                <i class="fas fa-bullseye text-2xl"></i>
+                            </div>
+                            <div class="ml-5">
+                                <h4 class="text-xl font-bold text-gray-800">Result-Driven Strategies</h4>
+                                <p class="mt-1 text-gray-600">From powerful SEO campaigns to targeted ad strategies, we focus on what matters: your growth.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-12 w-12 rounded-lg bg-blue-100 text-blue-800 flex items-center justify-center">
+                                <i class="fas fa-laptop-code text-2xl"></i>
+                            </div>
+                            <div class="ml-5">
+                                <h4 class="text-xl font-bold text-gray-800">Cutting-Edge Technology</h4>
+                                <p class="mt-1 text-gray-600">High-performing websites, mobile apps, and e-commerce solutions built for success.</p>
+                            </div>
+                        </div>
+                         <div class="flex items-start">
+                            <div class="flex-shrink-0 h-12 w-12 rounded-lg bg-gray-200 text-gray-700 flex items-center justify-center">
+                                 <i class="fas fa-network-wired text-2xl"></i>
+                            </div>
+                            <div class="ml-5">
+                                <h4 class="text-xl font-bold text-gray-800">Unmatched Influence</h4>
+                                <p class="mt-1 text-gray-600">We connect your brand with impactful creators across India's largest influencer network.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
-
-        <section class="google-map">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.872901615444!2d80.8721541!3d26.8757789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bffe7268efb83%3A0x60798ee077f017a8!2sCaspian!5e0!3m2!1sen!2sjp!4v1754617657334!5m2!1sen!2sjp"
-                class="map-iframe" width="100%" height="400" style="border:0;" allowfullscreen=""
-                loading="lazy"></iframe>
-        </section>
-
-    </main>
-
-    <footer class="site-footer">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-12">
-                    <h5 class="text-white">
-                        <i class="bi-geo-alt-fill me-2"></i>
-                        Head Office: Caspian Restaurant, Era University Sarfarazganj, Lucknow, Uttar Pradesh, India - 226003
-                    </h5>
-
-                    <a href="mailto:info@nextsoftmedia.com" class="custom-link mt-3 mb-5"> 
-                        Contact: +91 8601632286 | 
-                        info@nextsoftmedia.com
-                    </a>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="py-20 bg-gray-800 text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-8 rounded-lg fade-in">
+                    <div class="text-orange-500 text-5xl mb-4"><i class="fas fa-users"></i></div>
+                    <h3 class="text-5xl font-extrabold counter" data-target="64">0</h3>
+                    <p class="text-xl mt-2">Increase in Customer Base</p>
+                    <p class="text-gray-300 mt-2">Achieved through targeted marketing.</p>
                 </div>
-
-                <div class="col-6">
-                    <p class="copyright-text mb-0">Copyright © nextsoftmedia | 2025
-
-                        <br><br>Design: <a href="https://www.nextsoftmedia.com target="_parent">nextsoftmedia</a>
-                    </p>
-
+                <div class="p-8 rounded-lg fade-in" style="transition-delay: 0.2s;">
+                    <div class="text-orange-500 text-5xl mb-4"><i class="fas fa-chart-pie"></i></div>
+                    <h3 class="text-5xl font-extrabold counter" data-target="78">0</h3>
+                    <p class="text-xl mt-2">Growth in Digital Engagement</p>
+                     <p class="text-gray-300 mt-2">Boosted by influencer campaigns.</p>
                 </div>
+                <div class="p-8 rounded-lg fade-in" style="transition-delay: 0.4s;">
+                    <div class="text-orange-500 text-5xl mb-4"><i class="fas fa-arrow-trend-up"></i></div>
+                    <h3 class="text-5xl font-extrabold counter" data-target="100">0</h3>
+                    <p class="text-xl mt-2">Increase in Organic Customers</p>
+                     <p class="text-gray-300 mt-2">Driven by strong SEO strategies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="col-lg-3 col-5 ms-auto">
-                    <ul class="social-icon">
-                        <li><a href="#" class="social-icon-link bi-facebook"></a></li>
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-gray-800 fade-in">Our Comprehensive Services</h2>
+                <p class="section-subtitle mt-4 max-w-3xl mx-auto fade-in" style="transition-delay: 0.2s;">Everything you need to grow your business online.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Cards -->
+                <div class="card-hover bg-white p-8 rounded-lg shadow-lg fade-in border-t-4 border-orange-600"><div class="text-orange-600 text-4xl mb-4"><i class="fas fa-chart-line"></i></div><h3 class="text-2xl font-bold mb-3">Digital Marketing</h3><p class="text-gray-600">Rank higher, build your brand, and get instant traffic with our suite of services including SEO, SMM, and PPC.</p></div>
+                <div class="card-hover bg-white p-8 rounded-lg shadow-lg fade-in border-t-4 border-blue-800" style="transition-delay: 0.1s;"><div class="text-blue-800 text-4xl mb-4"><i class="fas fa-laptop-code"></i></div><h3 class="text-2xl font-bold mb-3">Website & IT Solutions</h3><p class="text-gray-600">Get a fast, modern website, e-commerce store, or mobile app customized for your business goals.</p></div>
+                <div class="card-hover bg-white p-8 rounded-lg shadow-lg fade-in border-t-4 border-orange-600" style="transition-delay: 0.2s;"><div class="text-orange-600 text-4xl mb-4"><i class="fas fa-camera-retro"></i></div><h3 class="text-2xl font-bold mb-3">Creative Media</h3><p class="text-gray-600">Capture your brand with stunning photography, professional videography, editing, and compelling scriptwriting.</p></div>
+                <div class="card-hover bg-white p-8 rounded-lg shadow-lg fade-in border-t-4 border-blue-800" style="transition-delay: 0.3s;"><div class="text-blue-800 text-4xl mb-4"><i class="fas fa-bullhorn"></i></div><h3 class="text-2xl font-bold mb-3">Influencer Marketing</h3><p class="text-gray-600">Promote your brand with top influencers from India's largest network for every industry and audience.</p></div>
+                <div class="card-hover bg-white p-8 rounded-lg shadow-lg fade-in border-t-4 border-orange-600" style="transition-delay: 0.4s;"><div class="text-orange-600 text-4xl mb-4"><i class="fas fa-pencil-ruler"></i></div><h3 class="text-2xl font-bold mb-3">UI/UX Design</h3><p class="text-gray-600">Deliver smooth and intuitive user experiences with beautiful, functional designs that your customers will love.</p></div>
+                <div class="card-hover bg-white p-8 rounded-lg shadow-lg fade-in border-t-4 border-blue-800" style="transition-delay: 0.5s;"><div class="text-blue-800 text-4xl mb-4"><i class="fas fa-server"></i></div><h3 class="text-2xl font-bold mb-3">Hosting & Maintenance</h3><p class="text-gray-600">Reliable domain registration, secure hosting, and ongoing tech support to keep your site running smoothly.</p></div>
+            </div>
+        </div>
+    </section>
 
-                        <li><a href="#" class="social-icon-link bi-twitter"></a></li>
+    <!-- Why Choose Us Section -->
+    <section id="why-choose-us" class="py-24 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-gray-800 fade-in">Why Partner With Us?</h2>
+                <p class="section-subtitle mt-4 max-w-3xl mx-auto fade-in" style="transition-delay: 0.2s;">We are committed to your success. Here's what makes us different.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                 <div class="bg-white p-8 rounded-lg shadow-lg flex items-start space-x-6 fade-in"><div class="flex-shrink-0 w-16 h-16 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center"><i class="fas fa-network-wired text-3xl"></i></div><div><h3 class="text-2xl font-bold mb-2">India's Largest Network</h3><p class="text-gray-600">Tap into our massive network of influencers and creators to amplify your message across the nation.</p></div></div>
+                 <div class="bg-white p-8 rounded-lg shadow-lg flex items-start space-x-6 fade-in" style="transition-delay: 0.2s;"><div class="flex-shrink-0 w-16 h-16 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center"><i class="fas fa-globe-asia text-3xl"></i></div><div><h3 class="text-2xl font-bold mb-2">Global Presence</h3><p class="text-gray-600">Our diverse team works with clients from all over the world, bringing a global perspective to your brand.</p></div></div>
+                 <div class="bg-white p-8 rounded-lg shadow-lg flex items-start space-x-6 fade-in" style="transition-delay: 0.4s;"><div class="flex-shrink-0 w-16 h-16 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center"><i class="fas fa-trophy text-3xl"></i></div><div><h3 class="text-2xl font-bold mb-2">Proven Results</h3><p class="text-gray-600">We are a data-driven agency focused on delivering measurable results that impact your bottom line.</p></div></div>
+                 <div class="bg-white p-8 rounded-lg shadow-lg flex items-start space-x-6 fade-in" style="transition-delay: 0.6s;"><div class="flex-shrink-0 w-16 h-16 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center"><i class="fas fa-hands-helping text-3xl"></i></div><div><h3 class="text-2xl font-bold mb-2">Dedicated Support</h3><p class="text-gray-600">Consider us an extension of your team. We provide ongoing support to ensure your goals are met.</p></div></div>
+            </div>
+        </div>
+    </section>
 
-                        <li><a href="#" class="social-icon-link bi-whatsapp"></a></li>
+    <!-- Our Team Section -->
+    <section id="team" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-gray-800 fade-in">Meet Our Experts</h2>
+                <p class="section-subtitle mt-4 max-w-3xl mx-auto fade-in" style="transition-delay: 0.2s;">The passionate minds behind your brand's success.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <!-- Team Member Card 1 -->
+                <div class="team-card bg-slate-50 rounded-lg shadow-lg overflow-hidden text-center fade-in transform transition-transform hover:-translate-y-2">
+                    <div class="h-56 bg-cover bg-center" style="background-image: url('Images/manazirimg.JPG')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">Manazir Husain</h3>
+                        <p class="text-orange-600 font-medium">Founder & CCO</p>
+                        <div class="team-socials mt-4 space-x-4">
+                            <a href="#" class="text-gray-500 hover:text-blue-800 transition"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                            <a href="mailto:manazir@nextsoftmedia.com" class="text-gray-500 hover:text-red-600 transition"><i class="fas fa-envelope fa-lg"></i></a>
+                            <a href="https://www.instagram.com/mr.manazir.__?igsh=MWxtNWgxcXNpY3A4Ng==" class="text-gray-500 hover:text-pink-600 transition"><i class="fab fa-instagram fa-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Team Member Card 2 -->
+                <div class="team-card bg-slate-50 rounded-lg shadow-lg overflow-hidden text-center fade-in transform transition-transform hover:-translate-y-2" style="transition-delay: 0.2s;">
+                    <div class="h-56 bg-cover bg-center" style="background-image: url('Images/alibhai.jpeg')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">Ali Hasan</h3>
+                        <p class="text-orange-600 font-medium">CEO</p>
+                        <div class="team-socials mt-4 space-x-4">
+                            <a href="#" class="text-gray-500 hover:text-blue-800 transition"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                            <a href="mailto:alihsan@nextsoftmedia.com" class="text-gray-500 hover:text-red-600 transition"><i class="fas fa-envelope fa-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Team Member Card 3 -->
+                <div class="team-card bg-slate-50 rounded-lg shadow-lg overflow-hidden text-center fade-in transform transition-transform hover:-translate-y-2" style="transition-delay: 0.4s;">
+                    <div class="h-56 bg-cover bg-center" style="background-image: url('Images/snaqvi.jpeg')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">Sayada Naqvi</h3>
+                        <p class="text-orange-600 font-medium">Head of Marketing</p>
+                        <div class="team-socials mt-4 space-x-4">
+                            <a href="#" class="text-gray-500 hover:text-blue-800 transition"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                             <a href="mailto:snaqvi@nextsoftmedia.com" class="text-gray-500 hover:text-red-600 transition"><i class="fas fa-envelope fa-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Team Member Card 4 -->
+                <div class="team-card bg-slate-50 rounded-lg shadow-lg overflow-hidden text-center fade-in transform transition-transform hover:-translate-y-2" style="transition-delay: 0.6s;">
+                    <div class="h-56 bg-cover bg-center" style="background-image: url('Images/saalimcvphoto.png')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">Saalim Ali Naqvi</h3>
+                        <p class="text-orange-600 font-medium">Co-founder & CTO</p>
+                        <div class="team-socials mt-4 space-x-4">
+                            <a href="#" class="text-gray-500 hover:text-blue-800 transition"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                            <a href="mailto:saalimalinaqvi@nextsoftmedia.com" class="text-gray-500 hover:text-red-600 transition"><i class="fas fa-envelope fa-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                        <li><a href="#" class="social-icon-link bi-instagram"></a></li>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-24 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-gray-800 fade-in">What Our Clients Say</h2>
+                <p class="section-subtitle mt-4 max-w-3xl mx-auto fade-in" style="transition-delay: 0.2s;">We are proud to have partnered with amazing brands.</p>
+            </div>
+            <div class="testimonial-slider fade-in">
+                <div class="testimonial-item active">
+                    <div class="testimonial-card max-w-3xl mx-auto p-8 rounded-lg shadow-lg">
+                        <i class="fas fa-quote-left text-blue-800 text-3xl mb-4"></i>
+                        <p class="text-gray-600 mb-6 text-lg">"Next Soft Media transformed our online presence. Their SEO strategy doubled our organic traffic in just three months. Highly recommended!"</p>
+                        <div class="flex items-center">
+                            <img src="https://placehold.co/50x50/e2e8f0/334155?text=AK" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                            <div><p class="font-bold">Aarav Kumar</p><p class="text-sm text-gray-500">Founder, Tech Innovations</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                     <div class="testimonial-card max-w-3xl mx-auto p-8 rounded-lg shadow-lg">
+                        <i class="fas fa-quote-left text-blue-800 text-3xl mb-4"></i>
+                        <p class="text-gray-600 mb-6 text-lg">"The influencer marketing campaign was a massive success, reaching millions and boosting our sales by 78%. Their network is unparalleled."</p>
+                        <div class="flex items-center">
+                            <img src="https://placehold.co/50x50/e2e8f0/334155?text=PS" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                            <div><p class="font-bold">Priya Sharma</p><p class="text-sm text-gray-500">Marketing Head, Fashion Fusion</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                     <div class="testimonial-card max-w-3xl mx-auto p-8 rounded-lg shadow-lg">
+                        <i class="fas fa-quote-left text-blue-800 text-3xl mb-4"></i>
+                        <p class="text-gray-600 mb-6 text-lg">"From our new website to managing our social media, the team has been professional, creative, and incredibly effective. They are true partners."</p>
+                        <div class="flex items-center">
+                            <img src="https://placehold.co/50x50/e2e8f0/334155?text=RV" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                            <div><p class="font-bold">Rohan Verma</p><p class="text-sm text-gray-500">CEO, Healthy Bites</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-center mt-8 space-x-3">
+                    <button id="prev-testimonial" class="w-12 h-12 rounded-full bg-white shadow-md text-blue-800 hover:bg-gray-100 transition"><i class="fas fa-chevron-left"></i></button>
+                    <button id="next-testimonial" class="w-12 h-12 rounded-full bg-white shadow-md text-blue-800 hover:bg-gray-100 transition"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                        <li><a href="#" class="social-icon-link bi-youtube"></a></li>
+    <!-- Blog Section -->
+    <section id="blog" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-gray-800 fade-in">From Our Blog</h2>
+                <p class="section-subtitle mt-4 max-w-3xl mx-auto fade-in" style="transition-delay: 0.2s;">Insights and trends from the world of digital marketing and IT.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Post 1 -->
+                <div class="card-hover bg-gray-50 rounded-lg shadow-lg overflow-hidden fade-in group flex flex-col">
+                    <div class="overflow-hidden"><img src="https://placehold.co/600x400/ea580c/ffffff?text=Influencer+Marketing" alt="Blog Post Image" class="w-full h-56 object-cover transform transition-transform duration-500 group-hover:scale-110"></div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-sm text-gray-500">Marketing • Sep 08, 2025</span>
+                        <h3 class="text-xl font-bold my-2 group-hover:text-orange-600 transition">The Power of Influencer Marketing in 2025</h3>
+                        <p class="text-gray-600 mb-4">Discover how leveraging India's largest influencer network can skyrocket your brand's reach and engagement.</p>
+                        <div class="mt-auto">
+                            <div class="flex items-center mb-4">
+                                <img src="Images/manazirimg.JPG" alt="Author" class="w-10 h-10 rounded-full mr-3">
+                                <div>
+                                    <p class="font-semibold text-sm">Manazir Husain</p>
+                                    <p class="text-xs text-gray-500">Founder & CCO</p>
+                                </div>
+                            </div>
+                            <button class="read-more-btn font-semibold text-orange-600 hover:underline" data-post-id="1">Read More &rarr;</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Post 2 -->
+                <div class="card-hover bg-gray-50 rounded-lg shadow-lg overflow-hidden fade-in group flex flex-col" style="transition-delay: 0.2s;">
+                    <div class="overflow-hidden"><img src="https://placehold.co/600x400/1e3a8a/ffffff?text=SEO+Trends" alt="Blog Post Image" class="w-full h-56 object-cover transform transition-transform duration-500 group-hover:scale-110"></div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-sm text-gray-500">SEO • Sep 01, 2025</span>
+                        <h3 class="text-xl font-bold my-2 group-hover:text-blue-800 transition">5 SEO Trends You Can't Ignore This Year</h3>
+                        <p class="text-gray-600 mb-4">Stay ahead of the competition with these essential SEO strategies that will dominate the search engine rankings.</p>
+                        <div class="mt-auto">
+                           <div class="flex items-center mb-4">
+                                <img src="Images/snaqvi.jpeg" alt="Author" class="w-10 h-10 rounded-full mr-3">
+                                <div>
+                                    <p class="font-semibold text-sm">Sayada Naqvi</p>
+                                    <p class="text-xs text-gray-500">Head of Marketing</p>
+                                </div>
+                            </div>
+                            <button class="read-more-btn font-semibold text-blue-800 hover:underline" data-post-id="2">Read More &rarr;</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Post 3 -->
+                <div class="card-hover bg-gray-50 rounded-lg shadow-lg overflow-hidden fade-in group flex flex-col" style="transition-delay: 0.4s;">
+                    <div class="overflow-hidden"><img src="https://placehold.co/600x400/334155/ffffff?text=Web+Design" alt="Blog Post Image" class="w-full h-56 object-cover transform transition-transform duration-500 group-hover:scale-110"></div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-sm text-gray-500">Web Development • Aug 25, 2025</span>
+                        <h3 class="text-xl font-bold my-2 group-hover:text-gray-800 transition">Why a Mobile-First Website is Crucial</h3>
+                        <p class="text-gray-600 mb-4">Learn why designing for mobile first isn't just a trend, but a necessity for business success in the digital age.</p>
+                         <div class="mt-auto">
+                           <div class="flex items-center mb-4">
+                                <img src="Images/saalimcvphoto.png" alt="Author" class="w-10 h-10 rounded-full mr-3">
+                                <div>
+                                    <p class="font-semibold text-sm">Saalim Ali Naqvi</p>
+                                    <p class="text-xs text-gray-500">Co-founder & CTO</p>
+                                </div>
+                            </div>
+                            <button class="read-more-btn font-semibold text-gray-700 hover:underline" data-post-id="3">Read More &rarr;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-gray-800 fade-in">Get In Touch</h2>
+                <p class="section-subtitle mt-4 max-w-3xl mx-auto fade-in" style="transition-delay: 0.2s;">Ready to start your project? We'd love to hear from you.</p>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <!-- Contact Form -->
+                <div class="bg-white rounded-lg shadow-xl p-8 lg:p-12 fade-in">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-800">Send us a Message</h3>
+                    <form id="contact-form" action="https://formspree.io/f/xldwkrkl" method="POST">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <input type="text" name="name" placeholder="Your Name" class="w-full p-4 bg-gray-100 rounded-md border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-800" required>
+                            <input type="email" name="email" placeholder="Your Email" class="w-full p-4 bg-gray-100 rounded-md border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-800" required>
+                        </div>
+                        <div class="mb-6">
+                            <input type="text" name="subject" placeholder="Subject" class="w-full p-4 bg-gray-100 rounded-md border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-800" required>
+                        </div>
+                        <div class="mb-6">
+                            <textarea name="message" placeholder="Your Message" rows="5" class="w-full p-4 bg-gray-100 rounded-md border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-800" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button id="form-submit-btn" type="submit" class="bg-orange-600 text-white font-bold py-3 px-12 rounded-full text-lg hover:bg-orange-700 transition-transform transform hover:scale-105 shadow-lg">Send Message</button>
+                        </div>
+                        <p id="form-status" class="text-center mt-4"></p>
+                    </form>
+                </div>
+                <!-- Map and Direct Contact -->
+                <div class="fade-in" style="transition-delay: 0.2s;">
+                     <div class="bg-white rounded-lg shadow-xl p-8 lg:p-12">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800">Contact Directly</h3>
+                        <div class="space-y-6">
+                             <a href="https://wa.me/918726632286" target="_blank" class="flex items-center space-x-4 group">
+                                <div class="w-12 h-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center transition-transform group-hover:scale-110"><i class="fab fa-whatsapp text-2xl"></i></div>
+                                <div><p class="font-semibold text-lg text-gray-800 group-hover:text-green-600 transition">WhatsApp</p><p class="text-gray-600">Message us directly</p></div>
+                             </a>
+                             <a href="mailto:info@nextsoftmedia.com" class="flex items-center space-x-4 group">
+                                <div class="w-12 h-12 rounded-full bg-red-100 text-red-600 flex items-center justify-center transition-transform group-hover:scale-110"><i class="fas fa-envelope text-xl"></i></div>
+                                <div><p class="font-semibold text-lg text-gray-800 group-hover:text-red-600 transition">Email</p><p class="text-gray-600">info@nextsoftmedia.com</p></div>
+                             </a>
+                             <a href="tel:+918726632286" class="flex items-center space-x-4 group">
+                                <div class="w-12 h-12 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center transition-transform group-hover:scale-110"><i class="fas fa-phone text-xl"></i></div>
+                                <div><p class="font-semibold text-lg text-gray-800 group-hover:text-blue-800 transition">Call Us</p><p class="text-gray-600">+91 87266 32286</p></div>
+                             </a>
+                        </div>
+                     </div>
+                     <div class="mt-8 rounded-lg shadow-xl overflow-hidden h-80">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d456206.3157503188!2d80.6787593911382!3d26.84862214349633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd991f32b16b%3A0x93ccba8909978be7!2sLucknow%2C%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1725828786443!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+                <div class="fade-in">
+                    <div class="flex items-center justify-center md:justify-start mb-4 space-x-3">
+                        <img src="Images/LOGO_NSM.png" alt="Next Soft Media Logo" class="h-12 w-auto rounded-md">
+                        <span class="text-2xl font-bold">
+                            <span class="text-black">Next</span><span class="text-gray-400">Soft</span><span class="text-orange-500">Media</span>
+                        </span>
+                    </div>
+                    <p class="text-gray-400">Your partner in achieving digital excellence and measurable growth. Let's build the future of your brand, together.</p>
+                </div>
+                <div class="fade-in" style="transition-delay: 0.2s;">
+                    <h4 class="text-xl font-semibold mb-4">Quick Links</h4>
+                     <ul class="space-y-3 text-gray-300">
+                        <li><a href="#about" class="hover:text-orange-500 transition">About Us</a></li>
+                        <li><a href="#services" class="hover:text-orange-500 transition">Services</a></li>
+                        <li><a href="#team" class="hover:text-orange-500 transition">Our Team</a></li>
+                        <li><a href="#blog" class="hover:text-orange-500 transition">Blog</a></li>
                     </ul>
                 </div>
-
+                 <div class="fade-in" style="transition-delay: 0.4s;">
+                    <h4 class="text-xl font-semibold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4 justify-center md:justify-start">
+                        <a href="#" class="text-gray-300 hover:text-orange-500 text-2xl"><i class="fab fa-facebook-f"></i></a><a href="#" class="text-gray-300 hover:text-orange-500 text-2xl"><i class="fab fa-instagram"></i></a><a href="#" class="text-gray-300 hover:text-orange-500 text-2xl"><i class="fa-brands fa-x-twitter"></i></a><a href="#" class="text-gray-300 hover:text-orange-500 text-2xl"><i class="fab fa-linkedin-in"></i></a><a href="#" class="text-gray-300 hover:text-orange-500 text-2xl"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
             </div>
-            </section>
+            <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-500">
+                <p>&copy; 2025 Next Soft Media. All Rights Reserved.</p>
+            </div>
+        </div>
     </footer>
 
-    <!-- JAVASCRIPT FILES -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery.sticky.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/magnific-popup-options.js"></script>
-    <script src="js/scrollspy.min.js"></script>
-    <script src="js/custom.js"></script>
-    <!-- Instagram embed script -->
-    <script async src="//www.instagram.com/embed.js"></script>
+    <!-- Blog Post Modal -->
+    <div id="blog-modal" class="hidden fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center p-4">
+        <div id="modal-content" class="bg-white rounded-lg shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto relative">
+            <button id="modal-close-btn" class="absolute top-4 right-4 text-3xl text-gray-500 hover:text-gray-800 transition">&times;</button>
+            <img id="modal-image" src="" alt="Blog Post Image" class="w-full h-72 object-cover rounded-t-lg">
+            <div class="p-8">
+                <h2 id="modal-title" class="text-3xl font-extrabold text-gray-800 mb-4"></h2>
+                <div class="flex items-center mb-6">
+                    <img id="modal-author-image" src="" alt="Author" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <p id="modal-author-name" class="font-bold"></p>
+                        <p id="modal-author-designation" class="text-sm text-gray-500"></p>
+                    </div>
+                </div>
+                <div id="modal-body" class="text-gray-700 text-lg leading-relaxed space-y-4">
+                    <!-- Full article content goes here -->
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Intersection Observer for animations
+        const animatedElements = document.querySelectorAll('.fade-in, .fly-in-left');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                     if (entry.target.classList.contains('progress-bar')) {
+                        entry.target.style.width = entry.target.dataset.width;
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        animatedElements.forEach(el => observer.observe(el));
+        
+        // Progress Bar Animation
+        const progressBars = document.querySelectorAll('.progress-bar');
+        const progressObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.width = entry.target.dataset.width;
+                    progressObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.8 });
+        progressBars.forEach(bar => {
+             observer.observe(bar);
+        });
+
+
+        // Counter animation
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200; 
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +counter.innerText.replace('%','');
+                        const inc = target / speed;
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + inc) + '%';
+                            setTimeout(updateCount, 15);
+                        } else {
+                            counter.innerText = target + '%';
+                        }
+                    };
+                    updateCount();
+                    observer.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+        counters.forEach(counter => counterObserver.observe(counter));
+
+        // Typed.js effect
+        const typedTextSpan = document.getElementById('typed-text');
+        if (typedTextSpan) {
+            const textArray = ["Marketing.", "Technology.", "Influence."];
+            const typingDelay = 100, erasingDelay = 50, newTextDelay = 2000;
+            let textArrayIndex = 0, charIndex = 0;
+            function type() {
+                if (charIndex < textArray[textArrayIndex].length) {
+                    typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex++);
+                    setTimeout(type, typingDelay);
+                } else {
+                    setTimeout(erase, newTextDelay);
+                }
+            }
+            function erase() {
+                if (charIndex > 0) {
+                    typedTextSpan.textContent = textArray[textArrayIndex].substring(0, --charIndex);
+                    setTimeout(erase, erasingDelay);
+                } else {
+                    textArrayIndex = (textArrayIndex + 1) % textArray.length;
+                    setTimeout(type, typingDelay + 1100);
+                }
+            }
+            document.addEventListener("DOMContentLoaded", () => setTimeout(type, newTextDelay + 250));
+        }
+
+        // Testimonial Slider
+        const testimonialItems = document.querySelectorAll('.testimonial-item');
+        const prevBtn = document.getElementById('prev-testimonial');
+        const nextBtn = document.getElementById('next-testimonial');
+        let currentTestimonial = 0;
+
+        function showTestimonial(index) {
+            testimonialItems.forEach((item, i) => {
+                item.classList.toggle('active', i === index);
+            });
+        }
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                currentTestimonial = (currentTestimonial - 1 + testimonialItems.length) % testimonialItems.length;
+                showTestimonial(currentTestimonial);
+            });
+        }
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                currentTestimonial = (currentTestimonial + 1) % testimonialItems.length;
+                showTestimonial(currentTestimonial);
+            });
+        }
+
+        // About Us Image Keyword Changer
+        const aboutImage = document.getElementById('about-us-image');
+        if (aboutImage) {
+            const keywords = ['Innovation', 'Marketing', 'Technology', 'Growth', 'Influence', 'Strategy'];
+            let currentKeywordIndex = 0;
+
+            setInterval(() => {
+                currentKeywordIndex = (currentKeywordIndex + 1) % keywords.length;
+                const newKeyword = keywords[currentKeywordIndex];
+                
+                aboutImage.classList.add('opacity-0');
+
+                setTimeout(() => {
+                    aboutImage.src = `https://placehold.co/600x450/1e3a8a/ffffff?text=${newKeyword}`;
+                    aboutImage.alt = `${newKeyword} at Next Soft Media`;
+                    aboutImage.classList.remove('opacity-0');
+                }, 500);
+
+            }, 3000);
+        }
+
+        // Contact Form Submission
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+        const submitButton = document.getElementById('form-submit-btn');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const form = e.target;
+                const data = new FormData(form);
+                
+                submitButton.disabled = true;
+                submitButton.textContent = 'Sending...';
+                formStatus.textContent = '';
+                
+                fetch(form.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        formStatus.textContent = "Thank you for your message!";
+                        formStatus.className = "text-center mt-4 text-green-600";
+                        form.reset();
+                    } else {
+                        response.json().then(data => {
+                            if (Object.hasOwn(data, 'errors')) {
+                                formStatus.textContent = data["errors"].map(error => error["message"]).join(", ");
+                            } else {
+                                formStatus.textContent = "Oops! There was a problem submitting your form";
+                            }
+                             formStatus.className = "text-center mt-4 text-red-600";
+                        })
+                    }
+                }).catch(error => {
+                    formStatus.textContent = "Oops! There was a problem submitting your form";
+                    formStatus.className = "text-center mt-4 text-red-600";
+                }).finally(() => {
+                     submitButton.disabled = false;
+                     submitButton.textContent = 'Send Message';
+                });
+            });
+        }
+
+        // Blog Post Modal Logic
+        const blogModal = document.getElementById('blog-modal');
+        if (blogModal) {
+            const readMoreButtons = document.querySelectorAll('.read-more-btn');
+            const modalCloseButton = document.getElementById('modal-close-btn');
+            const modalImage = document.getElementById('modal-image');
+            const modalTitle = document.getElementById('modal-title');
+            const modalAuthorImage = document.getElementById('modal-author-image');
+            const modalAuthorName = document.getElementById('modal-author-name');
+            const modalAuthorDesignation = document.getElementById('modal-author-designation');
+            const modalBody = document.getElementById('modal-body');
+
+            const blogPosts = {
+                '1': {
+                    title: 'The Power of Influencer Marketing in 2025',
+                    image: 'https://placehold.co/600x400/ea580c/ffffff?text=Influencer+Marketing',
+                    authorImage: 'https://placehold.co/50x50/e2e8f0/334155?text=MH',
+                    authorName: 'Manazir Husain',
+                    authorDesignation: 'Founder & CCO',
+                    content: `
+                        <p>The landscape of digital advertising is in constant flux, but one trend that continues to gain momentum is influencer marketing. By 2025, it's not just about celebrity endorsements anymore; it's about authenticity and connection. This article delves into why leveraging micro and nano-influencers within a vast network can be a game-changer for brands of all sizes.</p>
+                        <p>We'll explore how Next Soft Media's management of India's largest influencer network allows for hyper-targeted campaigns that resonate with niche audiences. From fashion and tech to lifestyle and education, the right voice can amplify your message and drive genuine engagement. It's about finding creators who align with your brand's values and can tell your story in a way that feels organic, not advertised. This shift towards authenticity is what builds trust and converts followers into loyal customers.</p>
+                        <h4 class="font-bold text-xl mt-6 mb-2">Key Takeaways:</h4>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Authenticity over celebrity status drives higher engagement.</li>
+                            <li>Hyper-local and language-based targeting are crucial for the Indian market.</li>
+                            <li>Performance tracking provides clear ROI on influencer campaigns.</li>
+                        </ul>
+                    `
+                },
+                '2': {
+                    title: "5 SEO Trends You Can't Ignore This Year",
+                    image: 'https://placehold.co/600x400/1e3a8a/ffffff?text=SEO+Trends',
+                    authorImage: 'https://placehold.co/50x50/e2e8f0/334155?text=SN',
+                    authorName: 'Sayada Naqvi',
+                    authorDesignation: 'Head of Marketing',
+                    content: `
+                        <p>Search Engine Optimization (SEO) is the backbone of organic growth. As algorithms become more sophisticated, so too must our strategies. This year, the focus is shifting heavily towards user experience, AI-driven search, and semantic understanding. Simply stuffing keywords is a relic of the past; today's SEO is about providing real value.</p>
+                        <p>This article breaks down the five most critical SEO trends that businesses need to adopt to stay competitive. We'll cover the importance of Core Web Vitals, the rise of MUM (Multitask Unified Model) in Google Search, and why long-form, high-quality content is more important than ever. We also discuss how local SEO, especially Google My Business optimization, can be a powerful tool for attracting customers in your vicinity.</p>
+                         <h4 class="font-bold text-xl mt-6 mb-2">The 5 Trends:</h4>
+                        <ol class="list-decimal list-inside space-y-2">
+                            <li>AI and Machine Learning in Search Results.</li>
+                            <li>Emphasis on Page Experience and Core Web Vitals.</li>
+                            <li>Video Content Optimization for Search.</li>
+                            <li>Long-Form Content that Answers Complex Queries.</li>
+                            <li>E-A-T: Expertise, Authoritativeness, and Trustworthiness.</li>
+                        </ol>
+                    `
+                },
+                '3': {
+                    title: 'Why a Mobile-First Website is Crucial',
+                    image: 'https://placehold.co/600x400/334155/ffffff?text=Web+Design',
+                    authorImage: 'https://placehold.co/50x50/e2e8f0/334155?text=SAN',
+                    authorName: 'Saalim Ali Naqvi',
+                    authorDesignation: 'Co-founder & CTO',
+                    content: `
+                        <p>In today's digital age, more than half of all web traffic comes from mobile devices. This is why a "mobile-first" approach to web design is no longer just a recommendation—it's a requirement for success. A mobile-first strategy means designing for the smallest screen first and then working your way up to larger screens like desktops.</p>
+                        <p>This approach ensures that your website delivers a seamless, user-friendly experience to the majority of your audience. It forces you to prioritize content and functionality, leading to a cleaner, more efficient design across all platforms. A fast, responsive, and intuitive mobile site not only improves user satisfaction but also significantly boosts your SEO rankings, as Google prioritizes mobile-friendly websites in its search results. In this article, we explore the technical and business benefits of adopting this crucial design philosophy.</p>
+                         <h4 class="font-bold text-xl mt-6 mb-2">Benefits of Mobile-First:</h4>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Improved user experience on all devices.</li>
+                            <li>Faster loading times.</li>
+                            <li>Better SEO performance and higher rankings.</li>
+                            <li>Higher conversion rates due to ease of use.</li>
+                        </ul>
+                    `
+                }
+            };
+
+            readMoreButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const postId = button.dataset.postId;
+                    const post = blogPosts[postId];
+                    if (post) {
+                        modalImage.src = post.image;
+                        modalTitle.textContent = post.title;
+                        modalAuthorImage.src = post.authorImage;
+                        modalAuthorName.textContent = post.authorName;
+                        modalAuthorDesignation.textContent = post.authorDesignation;
+                        modalBody.innerHTML = post.content;
+
+                        blogModal.classList.remove('hidden');
+                    }
+                });
+            });
+
+            const closeModal = () => {
+                blogModal.classList.add('hidden');
+            };
+
+            modalCloseButton.addEventListener('click', closeModal);
+            blogModal.addEventListener('click', (e) => {
+                if (e.target === blogModal) {
+                    closeModal();
+                }
+            });
+        }
+
+
+        // Three.js Particle Animation
+        let scene, camera, renderer, particles;
+
+        function createTextSprite(text, color = 'rgba(255, 255, 255, 0.85)') {
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            const fontSize = 90;
+            const font = `bold ${fontSize}px Inter`;
+            context.font = font;
+            const metrics = context.measureText(text);
+            const textWidth = metrics.width;
+
+            canvas.width = textWidth;
+            canvas.height = fontSize;
+            context.font = font;
+            context.fillStyle = color;
+            context.textAlign = 'center';
+            context.textBaseline = 'middle';
+            context.fillText(text, textWidth / 2, fontSize / 2);
+
+            const texture = new THREE.CanvasTexture(canvas);
+            const spriteMaterial = new THREE.SpriteMaterial({ 
+                map: texture, 
+                transparent: true, 
+                blending: THREE.AdditiveBlending, 
+                opacity: 0.85 
+            });
+            const sprite = new THREE.Sprite(spriteMaterial);
+            sprite.scale.set(0.15 * (textWidth / fontSize), 0.15, 1);
+            return sprite;
+        }
+
+        function init() {
+            const canvas = document.getElementById('particle-canvas');
+            if (!canvas) return;
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 5;
+            renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            
+            const particleGroup = new THREE.Group();
+            const keywords = ['SEO', 'SEM', 'Tech', 'Web', 'App', 'Digi', 'Next', 'Soft', 'Media', 'Marketing', 'Influencer', 'India', 'UAE', 'Russia', 'Dubai', 'USA', 'Product', 'Creative'];
+            const textParticleCount = 50;
+            const dotParticleCount = 4950;
+
+            // Create Text Particles
+            for (let i = 0; i < textParticleCount; i++) {
+                const keyword = keywords[Math.floor(Math.random() * keywords.length)];
+                const sprite = createTextSprite(keyword);
+                sprite.position.x = (Math.random() - 0.5) * 10;
+                sprite.position.y = (Math.random() - 0.5) * 10;
+                sprite.position.z = (Math.random() - 0.5) * 10;
+                particleGroup.add(sprite);
+            }
+
+            // Create Dot Particles
+            const positions = new Float32Array(dotParticleCount * 3);
+            for (let i = 0; i < dotParticleCount * 3; i++) {
+                positions[i] = (Math.random() - 0.5) * 10;
+            }
+            const particlesGeometry = new THREE.BufferGeometry();
+            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            const particlesMaterial = new THREE.PointsMaterial({
+                color: 0xffffff,
+                size: 0.015,
+                transparent: true,
+                blending: THREE.AdditiveBlending,
+                opacity: 0.6
+            });
+            const dots = new THREE.Points(particlesGeometry, particlesMaterial);
+            particleGroup.add(dots);
+
+            particles = particleGroup;
+            scene.add(particles);
+
+            animate();
+        }
+
+        let mouseX = 0, mouseY = 0;
+        document.addEventListener('mousemove', (event) => {
+            mouseX = event.clientX - window.innerWidth / 2;
+            mouseY = event.clientY - window.innerHeight / 2;
+        });
+
+        function animate() {
+            if (!renderer) return;
+            requestAnimationFrame(animate);
+            if (particles) {
+                particles.rotation.y += 0.0001 + (mouseX * 0.0000005);
+                particles.rotation.x += 0.0001 + (mouseY * 0.0000005);
+            }
+            renderer.render(scene, camera);
+        }
+
+        function onWindowResize() {
+            if (!renderer) return;
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        }
+        window.addEventListener('resize', onWindowResize, false);
+        init();
+    </script>
 </body>
-
 </html>
